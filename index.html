@@ -29,7 +29,7 @@
           L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
           attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
           maxZoom: 18,
-          id: 'mapbox/streets-v11',
+          id: 'mapbox/satellite-v9',
           tileSize: 512,
           zoomOffset: -1,
           accessToken: 'pk.eyJ1IjoiYXJ1bjk3IiwiYSI6ImNrMnBzbnp5ejA3NTUzZHA3Z3lrbHVvMGQifQ.a3Rqxf-rzJ_d6l26EnarmA'
@@ -60,11 +60,27 @@
               continue;
             
             }
-              
-              
+
+            var attr = {
+              "reef_name":row.REEF_NAME,
+              "reef_system":row.REEF_SYSTEM,
+              "reef_type":row.REEF_TYPE,
+              "island_name":row.ISLAND_NAME,
+              "water_depth":row.WATER_DEPTH
+            }  
+
+            for (var a in attr){
+              if(attr[a] == null){
+                attr[a] = "N/A"
+              }
+            }
           var marker = L.marker([row.LAT, row.LON], {
           opacity: 1
-          }).bindPopup(row.REEF_NAME)
+          }).bindPopup('<b>Name :</b>'+attr["reef_name"]+'</br>'+
+                        '<b>Reef System :</b>'+attr["reef_system"]+'</br>'+
+                        '<b>Reef Type :</b>'+attr["reef_type"]+'</br>'+
+                        '<b>Island Name :</b>'+attr["island_name"]+'</br>'+
+                        '<b>Water Depth :</b>'+attr["water_depth"]+'</br>')
 
           // marker.addTo(mymap)
           markers.addLayer(marker)
