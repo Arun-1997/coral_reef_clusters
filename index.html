@@ -66,7 +66,7 @@
               "reef_system":row.REEF_SYSTEM,
               "reef_type":row.REEF_TYPE,
               "island_name":row.ISLAND_NAME,
-              "water_depth":(row.WATER_DEPTH + " m")
+              "water_depth":row.WATER_DEPTH
             }  
 
             for (var a in attr){
@@ -80,7 +80,7 @@
                         '<b>Reef System :</b>'+attr["reef_system"]+'</br>'+
                         '<b>Reef Type :</b>'+attr["reef_type"]+'</br>'+
                         '<b>Island Name :</b>'+attr["island_name"]+'</br>'+
-                        '<b>Water Depth :</b>'+attr["water_depth"]+'</br>')
+                        '<b>Water Depth (m):</b>'+attr["water_depth"]+'</br>')
 
           // marker.addTo(mymap)
           markers.addLayer(marker)
