@@ -35,7 +35,7 @@
           accessToken: 'pk.eyJ1IjoiYXJ1bjk3IiwiYSI6ImNrMnBzbnp5ejA3NTUzZHA3Z3lrbHVvMGQifQ.a3Rqxf-rzJ_d6l26EnarmA'
           }).addTo(mymap);
 
-          console.log("Hi")
+          
           // Read markers data from data.csv
           $.get('./ReefLocations.csv', function(csvString) {
 
@@ -86,7 +86,7 @@
           markers.addLayer(marker)
           }
           mymap.addLayer(markers);
-          console.log(cnt)
+          
         })
       </script>
       </div>
